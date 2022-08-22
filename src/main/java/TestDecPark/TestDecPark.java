@@ -89,7 +89,7 @@ public class TestDecPark {
 //        System.out.println(poc_1_list);
 //        UseDecPark.verify_Poc1(user, poc_1_list);
 //        UseDecPark.verify_Poc2(user.getUserid_hash(), all_poc_2_list, Tree_map);
-////        验证POC_3
+////        verify POC_3
 //        boolean verify_result3 = UseDecPark.verify_B1_B2(pl, driver2,k, Param.AESkey, start_block, end_block);
 //        System.out.println(verify_result3);
 
