@@ -103,6 +103,7 @@ public class UseDecPark {
             } catch (InterruptedException e) {
 
             }
+            Thread.sleep(1000);
         }
 
         executorService.shutdown();
@@ -144,9 +145,7 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
         try {
             System.out.println("driver"+driver+"queryhash:");
             String transactionHash = contract.Query(driver, k).send().getTransactionHash();
-            EthGetTransactionReceipt receipt = web3.ethGetTransactionReceipt(transactionHash).send();
-            BigInteger gasUsed = receipt.getTransactionReceipt().get().getGasUsed();
-            System.out.println("Query Gasused:"+gasUsed);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
