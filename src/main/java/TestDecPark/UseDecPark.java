@@ -35,11 +35,11 @@ import java.util.concurrent.*;
 import static IBF.IBtreeConstruction.addBytes;
 
 public class UseDecPark {
-    private static String netWorkUrl = "http://localhost:8545";//测试链地址
-    //    private static String credentialsAddress = "f8a25eb5050a58c9dd4316c5a8f5c72f993e77ebbdb06cd80ec0981aa229549a";//账户私钥
-    private static String privatekey ;//账户私钥
+    private static String netWorkUrl = "http://localhost:8545";
+    //    private static String credentialsAddress = "f8a25eb5050a58c9dd4316c5a8f5c72f993e77ebbdb06cd80ec0981aa229549a";
+    private static String privatekey ;
 
-    private static String contractAddress = "0xD86C56E4f612987332ED8Fb33b07eE405111C099";//合约地址
+    private static String contractAddress = "0xD86C56E4f612987332ED8Fb33b07eE405111C099";
     public static DecPark contract;
     public static Web3j web3;
 
@@ -49,7 +49,7 @@ public class UseDecPark {
 
     public static void Concontract() {
         try {
-            //连接对应的以太坊
+
             web3 = Web3j.build(new HttpService(netWorkUrl));
             privatekey = exportPrivateKey("src/main/resources/keystore/UTC--2022-08-15T12-56-10.246215000Z--7ac8300a50b3b47b3e278c7d417ee844918272e6", "123");
 //            privatekey = exportPrivateKey("src/main/resources/keystore/UTC--2022-08-17T07-14-49.119451100Z--fc07321b4e8caf11ae4262f5e827a88d7604ce05", "123");
@@ -72,15 +72,15 @@ public class UseDecPark {
         if (CollectionUtils.isEmpty(IBtree_list) || nThread <= 0) {
             return;
         }
-        Semaphore semaphore = new Semaphore(nThread);//定义几个许可
-        ExecutorService executorService = Executors.newFixedThreadPool(nThread);//创建一个固定的线程池
+        Semaphore semaphore = new Semaphore(nThread);
+        ExecutorService executorService = Executors.newFixedThreadPool(nThread);
         for (int i = 1; i < IBtree_list.size(); i++) {
             try {
                 semaphore.acquire();
                 int finalI = i;
                 IBtree iBtree = IBtree_list.get(finalI);
                 executorService.execute(() -> {
-                    //此处可以放入待处理的业务
+
                     try {
                         BigInteger rb = BigInteger.valueOf(iBtree.rb);
                         BigInteger node_index = BigInteger.valueOf(iBtree.index);
@@ -117,8 +117,8 @@ public class UseDecPark {
 //        if ( nThread <= 0) {
 //            return;
 //        }
-//        Semaphore semaphore = new Semaphore(nThread);//定义几个许可
-//        ExecutorService executorService = Executors.newFixedThreadPool(nThread);//创建一个固定的线程池
+//        Semaphore semaphore = new Semaphore(nThread);
+//        ExecutorService executorService = Executors.newFixedThreadPool(nThread);
 //        for (Map.Entry<String, twinAndhkp> entry : token_map.entrySet()) {
 //            String token1_value = entry.getKey();
 //            List<BigInteger> twinindex_list = entry.getValue().twinindex_list;
@@ -126,7 +126,7 @@ public class UseDecPark {
 //            try {
 //                semaphore.acquire();
 //                executorService.execute(() -> {
-//                    //此处可以放入待处理的业务
+
 //                    try {
 ////                        System.out.println(contract.PushToken1(driver, token1_value, twinindex_list, hkpb1_list).send().getTransactionHash());
 //                        System.out.println(contract.PushToken1(driver, token1_value, twinindex_list, hkpb1_list).sendAsync());
@@ -151,8 +151,8 @@ public class UseDecPark {
 //        if ( nThread <= 0) {
 //            return;
 //        }
-//        Semaphore semaphore = new Semaphore(nThread);//定义几个许可
-//        ExecutorService executorService = Executors.newFixedThreadPool(nThread);//创建一个固定的线程池
+//        Semaphore semaphore = new Semaphore(nThread);
+//        ExecutorService executorService = Executors.newFixedThreadPool(nThread);
 //        for (Map.Entry<String, twinAndhkp> entry : token_map.entrySet()) {
 //            String token2_value = entry.getKey();
 //            List<BigInteger> twinindex_list = entry.getValue().twinindex_list;
@@ -160,7 +160,7 @@ public class UseDecPark {
 //            try {
 //                semaphore.acquire();
 //                executorService.execute(() -> {
-//                    //此处可以放入待处理的业务
+
 //                    try {
 //                        System.out.println(contract.PushToken2(driver, token2_value, twinindex_list, hkpb1_list).sendAsync());
 //                    } catch (Exception e) {
@@ -208,7 +208,7 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
     public static void  Query(byte[] driver,BigInteger k){
 
         try {
-            System.out.println("司机"+driver+"查询hash:");
+            System.out.println("driver"+driver+"queryhash:");
             String transactionHash = contract.Query(driver, k).send().getTransactionHash();
             EthGetTransactionReceipt receipt = web3.ethGetTransactionReceipt(transactionHash).send();
             BigInteger gasUsed = receipt.getTransactionReceipt().get().getGasUsed();
@@ -243,7 +243,7 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
             User_Result sigle_user_result = new User_Result(no_l, ps_pre, ps_current, lat, lng, price,node_index);
             query_decrpted.add(sigle_user_result);
             long end = System.currentTimeMillis();
-            System.out.println("解密时间："+(end - start)+"ms");
+            System.out.println((end - start)+"ms");
         }
         return query_decrpted;
     }
@@ -281,7 +281,7 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
             }
         }
         long end = System.currentTimeMillis();
-        System.out.println("验证Poc1所用时间:"+(end-start)+"ms");
+        System.out.println("verify Poc1:"+(end-start)+"ms");
         return true;
     }
     public static ArrayList<ArrayList<Poc2>> get_Poc_2(byte[] driver) throws Exception {
@@ -331,7 +331,7 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
             }
         }
         long end = System.currentTimeMillis();
-        System.out.println("验证Poc2所用时间:"+(end-start)+"ms");
+        System.out.println("verify Poc2:"+(end-start)+"ms");
         if (count == R_length.intValue()){
             return true;
         }else {
@@ -343,15 +343,15 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
         int B2 = 0;
         long start = System.currentTimeMillis();
         for (int i = start_block.intValue();i< end_block.intValue()+1;i++){
-            //通过区块号获取该区块
+
             EthBlock.Block latestBlock2 = web3.ethGetBlockByNumber(DefaultBlockParameter.valueOf(new BigInteger(String.valueOf(i))), true).send().getBlock();
-            //获取该区块上的交易池的对象
+
             List<TransactionResult> txlist = latestBlock2.getTransactions();
-            //输出该区块的交易池的每个交易对象
+
             for (TransactionResult transactionResult : txlist) {
-                //交易对象转换为TransactionObject对象
+
                 EthBlock.TransactionObject transaction = (EthBlock.TransactionObject) transactionResult.get();
-                //调用TransactionObject对象的getInput方法
+
                 if (transaction.getInput().startsWith("0x027c6c5f")){
                     int pl_number = Integer.parseInt(transaction.getInput().substring(10, 74), 16);
                     if (pl_number == pl.intValue()){
@@ -376,7 +376,7 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
             }
         }
         long end = System.currentTimeMillis();
-        System.out.println("验证PoT所用时间:"+(end-start)+"ms");
+        System.out.println("verify PoT:"+(end-start)+"ms");
         if (ps_c == ps_pre - B1 + B2){
             return true;
         }else {
@@ -389,15 +389,15 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
         ArrayList<BigInteger> Blist = new ArrayList<>();
         long start = System.currentTimeMillis();
         for (int i = start_block.intValue();i< end_block.intValue()+1;i++){
-            //通过区块号获取该区块
+
             EthBlock.Block latestBlock2 = web3.ethGetBlockByNumber(DefaultBlockParameter.valueOf(new BigInteger(String.valueOf(i))), true).send().getBlock();
-            //获取该区块上的交易池的对象
+
             List<TransactionResult> txlist = latestBlock2.getTransactions();
-            //输出该区块的交易池的每个交易对象
+
             for (TransactionResult transactionResult : txlist) {
-                //交易对象转换为TransactionObject对象
+
                 EthBlock.TransactionObject transaction = (EthBlock.TransactionObject) transactionResult.get();
-                //调用TransactionObject对象的getInput方法
+
                 if (transaction.getInput().startsWith("0x027c6c5f")){
                         B1 +=1;
                 }
@@ -409,17 +409,17 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
         long end = System.currentTimeMillis();
         Blist.add(BigInteger.valueOf(B1));
         Blist.add(BigInteger.valueOf(B2));
-        System.out.println("产生B1，B2所用时间:"+(end-start)+"ms");
+        System.out.println("B1，B2:"+(end-start)+"ms");
         return Blist;
     }
     public synchronized static <T> void ParkingThread(BigInteger pl, byte[] driver, int npl ,int nThread) throws Exception {
-        Semaphore semaphore = new Semaphore(nThread);//定义几个许可
-        ExecutorService executorService = Executors.newFixedThreadPool(nThread);//创建一个固定的线程池
+        Semaphore semaphore = new Semaphore(nThread);
+        ExecutorService executorService = Executors.newFixedThreadPool(nThread);
         for (int i = 0; i < npl/2; i++) {
             try {
                 semaphore.acquire();
                 executorService.execute(() -> {
-                    //此处可以放入待处理的业务
+
                     try {
                         Parking(pl,driver);
                         Departing(pl,driver);
@@ -443,11 +443,9 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
         }
     }
     public static void Parking(BigInteger pl, byte[] driver) throws Exception {
-//        System.out.println("司机"+driver+"停车在" + pl.intValue()+"号停车场");
         String transactionHash = contract.Parking(pl, driver).send().getTransactionHash();
     }
     public static void Departing(BigInteger pl, byte[] driver) throws Exception {
-//        System.out.println("司机"+driver+"离开" + pl.intValue()+"号停车场");
         String transactionHash = contract.Departing(pl, driver).send().getTransactionHash();
     }
 
@@ -477,12 +475,12 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
         for (int i = 0; i < x; i++) {
             double lat = CommonUtilit.random_double(Param.LAT1,Param.LAT2);
             double lng = CommonUtilit.random_double(Param.LON1,Param.LON2);
-            int y = (int) (Math.random() * 62);//随机id
+            int y = (int) (Math.random() * 62);
 //            int y = 5;
             User user = new User(y, Param.data_number, lat, lng, Param.K0);
             byte[] driver1 = user.getUserid_hash();
             driver_list.add(driver1);
-//            System.out.println("随机用户十六进制字符串:"+Numeric.toHexString(user.getUserid_hash()));
+//            System.out.println(Numeric.toHexString(user.getUserid_hash()));
             ArrayList<String> t1 = user.get_T1();
             ArrayList<String> t2 = user.get_T2();
             ArrayList<ArrayList<Pair<BigInteger, BigInteger>>> t1_raw_locations = user.T1_raw_locations(t1);
@@ -498,7 +496,7 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
             }
         }
 
-        System.out.println("输出全部司机字符串:");
+
         ArrayList<String> dirver_hex_list = new ArrayList<>();
         for (int i = 0; i < driver_list.size(); i++) {
             byte[] driver = driver_list.get(i);
@@ -521,57 +519,7 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
             }
         }
     }
-//
-//    public static  ArrayList<Double> get_R_time(ArrayList<byte[]> driver_list, byte[] driver, BigInteger k) throws Exception {
-//        int x = driver_list.size();//从500个司机选出x个发交易
-//        ArrayList<Double> get_R_time_list = new ArrayList<Double>();
-//        System.out.println("有"+x+"个司机发出交易");
-//        Thread[] threads = new Thread[x+1];
-//        for (int i = 0; i < x; i++) {
-//            int finalI = i;
-//            threads[i] = new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    try {
-//                        Query(driver_list.get(finalI), k);
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            });
-//        }
-//        threads[x] = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    long start = System.currentTimeMillis();
-//                    Query(driver, k);
-//                    long end = System.currentTimeMillis();
-//                    System.out.println("get_R_time:"+(end-start)+"ms");
-//                    get_R_time_list.add((end-start)/1000.0);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        for (int i = 0; i < x; i++) {
-//            threads[i].start();
-//            if (i==20){
-//                Thread.sleep(1000);
-//            }
-//
-//            if (i==x/2){
-//                threads[x].start();
-//            }
-//        }
-//        Thread.sleep(1000);
-//
-//        for (int i = 0; i < threads.length; i++) {
-//            threads[i].join();
-//        }
-//
-//        return get_R_time_list;
-//    }
+
 
 //
     public synchronized static <T> ArrayList<Double> get_R_time(int driver_num, byte[] driver, BigInteger k) throws Exception {
@@ -592,8 +540,8 @@ public synchronized static <T> void PushToken1(byte[] driver, HashMap<String, tw
 //                        double lng = CommonUtilit.random_double(Param.LON1,Param.LON2);
                         double lat = 34.0550558;
                         double lng = -118.2448534;
-//                        int y = (int) (Math.random() * 62);//随机id
-                        int y = 5;//随机id
+//                        int y = (int) (Math.random() * 62);
+                        int y = 5;
                         User user = new User(y, Param.data_number, lat, lng, Param.K0);
                         byte[] driver1 = user.getUserid_hash();
                         Query(driver1, k);
