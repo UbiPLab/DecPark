@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!--    标题栏-->
+    <com.example.decpark.widget.TitleLayout
+        android:id="@+id/tl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--    头像-->
+    <LinearLayout
+        android:id="@+id/ll_portrait"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="30dp"
+        android:paddingBottom="10dp">
+
+        <com.example.decpark.widget.RoundImageView
+            android:id="@+id/ri_portrait"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/car" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="15dp"
+            android:text="Change avatar"
+            android:textColor="@color/gray3" />
+
+    </LinearLayout>
+    <!--    编辑界面，此处可以写成一个ItemGroup上传至com上-->
+    <com.example.decpark.widget.ItemGroup
+        android:id="@+id/ig_Plate_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:jt_visible="false"
+        app:paddingLeft="15dp"
+        app:title="Plate number" />
+
+    <com.example.decpark.widget.ItemGroup
+        android:id="@+id/ig_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:edt_hint_content="修改昵称"
+        app:jt_visible="false"
+        app:paddingLeft="15dp"
+        app:title="Username" />
+
+    <com.example.decpark.widget.ItemGroup
+        android:id="@+id/ig_ID_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:edt_hint_content="ID number"
+        app:jt_visible="false"
+        app:paddingLeft="15dp"
+        app:title="ID number" />
+
+    <com.example.decpark.widget.ItemGroup
+        android:id="@+id/ig_Car_brand"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        app:edt_hint_content="未选择"
+        app:jt_visible="false"
+        app:paddingLeft="15dp"
+        app:title="Car brand" />
+
+    <com.example.decpark.widget.ItemGroup
+        android:id="@+id/ig_Authentication"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        app:edt_hint_content="未选择"
+        app:edt_text_color="@color/assist_red"
+        app:paddingLeft="15dp"
+        app:title="Authentication" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100" />
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="50dp"
+        android:text="go to search"
+        android:textColor="@color/gray2"/>
+
+
+</LinearLayout>

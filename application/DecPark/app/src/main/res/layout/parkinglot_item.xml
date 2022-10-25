@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--这个布局是ListView的每一项的布局，即一个停车场的布局-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <ImageView
+        android:id="@+id/PL_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"/>
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/car_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="🚘"
+            android:layout_gravity="center_vertical"
+            android:textSize="19dp"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/id_spots_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="abcdef"
+            android:background="#4169e1"
+            android:layout_gravity="center_vertical"
+            android:textSize="19dp"
+            android:textColor="#fffafa" />
+        <TextView
+            android:id="@+id/prices_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="abcdef"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:textSize="25dp"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/earth_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌎"
+            android:layout_gravity="center_vertical"
+            android:textSize="19dp"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/lat_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="abcdef"
+            android:layout_gravity="center_vertical"
+            android:textSize="19dp"
+            android:maxLength="20"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/lng_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="abcdef"
+            android:layout_gravity="center_vertical"
+            android:textSize="19dp"
+            android:maxLength="20"
+
+            android:textColor="@color/black" />
+
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
