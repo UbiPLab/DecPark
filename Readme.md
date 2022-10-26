@@ -3,3 +3,4 @@
 - Use web3j implements contract interaction. 
 - Package com mainly implements anonymous authentication.
 - Package TestDecPark implements the drivers' queries and verification.
+-Package application implements the DecPark app on the android studio.
