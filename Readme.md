@@ -4,7 +4,7 @@
 - Package com mainly implements anonymous authentication.
 - Package TestDecPark implements the drivers' queries and verification.
 - Package application implements the DecPark app on the android studio.
-- 
+
 - ### Run the Project
   1.  Open the project with **idea**
   2.  Use geth to build the Consortium Blockchain.
