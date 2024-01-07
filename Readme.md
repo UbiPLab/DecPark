@@ -5,13 +5,13 @@
 - Package TestDecPark implements the drivers' queries and verification.
 - Package application implements the DecPark app on the android studio.
 
-- ### Run the Project
+## Run the Project
   1.  Open the project with **idea**
   2.  Use geth to build the Consortium Blockchain.
   3.  Write the smart contract with remix and deploy the contract by the metamask.
   4.  Use web3j implements contract interaction. 
 
-  - ### Run the application
+## Run the application
   1.  Open the Package application with **android studio**
   2.  Use geth to build the Consortium Blockchain.
   3.  use Gradle to introduce the Web3J library to interact with the consortium blockchain.
