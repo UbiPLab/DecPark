@@ -13,10 +13,9 @@
 
 ## Run the application
   1.  Open the Package application with **android studio**
-  2.  Use geth to build the Consortium Blockchain.
-  3.  use Gradle to introduce the Web3J library to interact with the consortium blockchain.
-  4.  store the data generated during communication in a database using SQLite.
-  5.  the application has implemented five major functions: Registration, Login, Authentication, Querying, and Reservation.
+  2.  use Gradle to introduce the Web3J library to interact with the consortium blockchain.
+  3.  store the data generated during communication in a database using SQLite.
+  4.  the application has implemented five major functions: Registration, Login, Authentication, Querying, and Reservation.
 
   
 
